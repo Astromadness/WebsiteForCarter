@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carter, Please Help Me Buy This Laptop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/tone.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3, .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-zinc-900 to-indigo-950 min-h-screen text-slate-100 flex items-center justify-center p-4 sm:p-6 overflow-x-hidden">
+    <div id="app" class="w-full max-w-3xl mx-auto bg-slate-900/90 backdrop-blur-2xl border border-indigo-500/20 rounded-3xl shadow-2xl shadow-indigo-950/50 p-6 sm:p-10 transition-all duration-500 relative">
+        <div id="main-view" class="flex flex-col items-center text-center space-y-8">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs sm:text-sm font-semibold tracking-wide shadow-inner">
+                <i class="fa-solid fa-star text-amber-400"></i>
+                Future Software Engineer Request • ASUS Zenbook S 14
+            </div>
+
+            <div class="space-y-4 max-w-2xl">
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight font-poppins">
+                    Carter, can you please get me an
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-sky-300 to-cyan-400">ASUS Zenbook S 14</span>?
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg">
+                    Check out the official details here:
+                    <a href="https://shorturl.at/t8kqx" target="_blank" rel="noopener noreferrer" class="text-cyan-400 underline hover:text-cyan-300 font-medium transition inline-flex items-center gap-1.5 ml-1">
+                        https://shorturl.at/t8kqx <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full text-left pt-2">
+                <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-2xl flex flex-col gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-lg">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Better Coding</h3>
+                    <p class="text-xs sm:text-sm text-slate-400">Fast performance for coding, testing, learning, and building projects smoothly.</p>
+                </div>
+
+                <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-2xl flex flex-col gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-lg">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Study Only</h3>
+                    <p class="text-xs sm:text-sm text-slate-400">This laptop would be used for study, learning, and future career growth, not gaming.</p>
+                </div>
+
+                <div class="bg-slate-800/60 border border-slate-700/60 p-4 rounded-2xl flex flex-col gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400 text-lg">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Future Investment</h3>
+                    <p class="text-xs sm:text-sm text-slate-400">It would help me build the skills and tools I need to become a software engineer.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 w-full pt-4 relative min-h-[110px]">
+                <button id="yes-btn" onclick="handleYesClick()" class="w-full sm:w-56 py-4 px-8 bg-gradient-to-r from-emerald-500 via-teal-600 to-cyan-600 hover:from-emerald-400 hover:to-cyan-500 text-white font-bold text-lg rounded-2xl shadow-xl shadow-emerald-950/50 transform hover:-translate-y-1 transition active:translate-y-0 cursor-pointer flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-heart-circle-check text-xl"></i>
+                    <span>Yes! Absolutely</span>
+                </button>
+
+                <button id="no-btn" onmouseover="dodgeButton()" ontouchstart="dodgeButton()" onclick="dodgeButton()" class="w-full sm:w-48 py-4 px-8 bg-gradient-to-r from-rose-600 to-red-700 text-white font-bold text-lg rounded-2xl shadow-xl shadow-rose-950/50 transition-all duration-200 cursor-pointer flex items-center justify-center gap-3 absolute sm:relative right-0 sm:right-auto">
+                    <i class="fa-solid fa-ban text-xl"></i>
+                    <span>No</span>
+                </button>
+            </div>
+
+            <p id="dodge-message" class="text-xs text-rose-400/90 h-6 font-medium italic transition-opacity opacity-0">Nice try! But the No button is feeling shy today. Try clicking Yes! 😉</p>
+        </div>
+
+        <div id="success-view" class="hidden flex-col space-y-6 text-left animate-fadeIn">
+            <div class="flex items-center gap-4 border-b border-slate-800 pb-5">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-3xl font-bold shrink-0 shadow-lg shadow-emerald-950">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white font-poppins">Accepted! 🎉</h2>
+                    <p class="text-emerald-400 text-sm font-medium">Thank you, Carter. Your support means a lot.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xl backdrop-blur-md">
+                <p class="text-slate-100 leading-relaxed text-base sm:text-lg whitespace-pre-line font-medium">
+hi Carter, I really need this laptop for my programming and future as a software engineer. If you buy it for me, it could truly help me build the future I want. I promise i will use it for study and learning only, not gaming.
+                </p>
+
+                <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-inner">
+                    <div class="flex items-center gap-3 overflow-hidden">
+                        <i class="fa-solid fa-link text-cyan-400 text-lg"></i>
+                        <span class="text-sm text-slate-200 font-mono truncate">https://shorturl.at/t8kqx</span>
+                    </div>
+                    <a href="https://shorturl.at/t8kqx" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 rounded-lg text-sm font-semibold transition shrink-0 flex items-center gap-1.5">
+                        Open Link <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="bg-slate-900/90 border border-slate-700/80 rounded-xl p-5 space-y-3 shadow-inner">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-indigo-400 font-bold text-sm sm:text-base">
+                            <i class="fa-solid fa-location-dot"></i> Shipping Address:
+                        </div>
+                        <button onclick="copyAddress()" id="copy-btn" class="px-3 py-1.5 bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-300 border border-indigo-500/40 rounded-lg text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer">
+                            <i class="fa-solid fa-copy"></i> Copy Address
+                        </button>
+                    </div>
+                    <p id="address-text" class="text-slate-200 text-sm sm:text-base leading-relaxed pl-2 font-medium">
+                        UAE, Sharjah, Rolla, Al Hisn Avenue near Al Hisn Fort, Next to Al Kabayel Building, Al Amiri Carpet Building, 5th floor, 53
+                    </p>
+                </div>
+
+                <p class="text-slate-300 text-sm sm:text-base italic pt-2 font-medium">
+                    Thank you for reading this, and please reply when you can. ❤️
+                </p>
+            </div>
+
+            <div class="flex justify-center pt-2">
+                <button onclick="resetApp()" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-xl font-medium transition text-sm flex items-center gap-2 cursor-pointer shadow-lg">
+                    <i class="fa-solid fa-rotate-right"></i> Start Over
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let dodgeCount = 0;
+        const dodgeMessages = [
+            "Nice try! But the No button is feeling shy today. 😉",
+            "Oops! That button is still dodging. Please click Yes!",
+            "No option not found. The Yes button is clearly the right choice. 🚀",
+            "This one is not going anywhere, Carter. Please choose Yes!"
+        ];
+
+        function playSuccessSound() {
+            try {
+                const synth = new Tone.Synth().toDestination();
+                synth.triggerAttackRelease('C5', '8n');
+                setTimeout(() => synth.triggerAttackRelease('E5', '8n'), 150);
+                setTimeout(() => synth.triggerAttackRelease('G5', '4n'), 300);
+            } catch (error) {
+                console.log('Audio context is not ready yet.', error);
+            }
+        }
+
+        function playDodgeSound() {
+            try {
+                const synth = new Tone.Synth({
+                    oscillator: { type: 'sine' },
+                    envelope: { attack: 0.01, decay: 0.1, sustain: 0, release: 0.1 }
+                }).toDestination();
+                synth.triggerAttackRelease('G3', '16n');
+            } catch (error) {
+                console.log('Audio interaction is still waiting for a user gesture.', error);
+            }
+        }
+
+        function dodgeButton() {
+            playDodgeSound();
+            const noBtn = document.getElementById('no-btn');
+            const msgEl = document.getElementById('dodge-message');
+
+            const randomX = (Math.random() - 0.5) * 280;
+            const randomY = (Math.random() - 0.5) * 180;
+
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(0.95)`;
+            msgEl.textContent = dodgeMessages[dodgeCount % dodgeMessages.length];
+            msgEl.style.opacity = '1';
+            dodgeCount += 1;
+        }
+
+        function copyAddress() {
+            const addressText = 'UAE, Sharjah, Rolla, Al Hisn Avenue near Al Hisn Fort, Next to Al Kabayel Building, Al Amiri Carpet Building, 5th floor, 53';
+            const copyBtn = document.getElementById('copy-btn');
+            const textarea = document.createElement('textarea');
+
+            textarea.value = addressText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+            copyBtn.classList.add('bg-emerald-600/30', 'text-emerald-300', 'border-emerald-500/40');
+
+            setTimeout(() => {
+                copyBtn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy Address';
+                copyBtn.classList.remove('bg-emerald-600/30', 'text-emerald-300', 'border-emerald-500/40');
+            }, 2500);
+        }
+
+        function handleYesClick() {
+            playSuccessSound();
+
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 }
+            });
+
+            const mainView = document.getElementById('main-view');
+            const successView = document.getElementById('success-view');
+
+            mainView.style.opacity = '0';
+            mainView.style.transform = 'scale(0.95)';
+
+            setTimeout(() => {
+                mainView.classList.add('hidden');
+                successView.classList.remove('hidden');
+                successView.classList.add('flex');
+                successView.style.opacity = '0';
+                successView.style.transform = 'scale(1.05)';
+
+                setTimeout(() => {
+                    successView.style.transition = 'all 0.5s ease';
+                    successView.style.opacity = '1';
+                    successView.style.transform = 'scale(1)';
+                }, 50);
+            }, 300);
+        }
+
+        function resetApp() {
+            const mainView = document.getElementById('main-view');
+            const successView = document.getElementById('success-view');
+            const noBtn = document.getElementById('no-btn');
+            const msgEl = document.getElementById('dodge-message');
+
+            successView.classList.add('hidden');
+            successView.classList.remove('flex');
+            successView.style.opacity = '1';
+            successView.style.transform = 'scale(1)';
+
+            mainView.classList.remove('hidden');
+            mainView.style.opacity = '1';
+            mainView.style.transform = 'scale(1)';
+
+            noBtn.style.transform = 'translate(0px, 0px)';
+            msgEl.style.opacity = '0';
+            dodgeCount = 0;
+        }
+    </script>
+</body>
+</html>
